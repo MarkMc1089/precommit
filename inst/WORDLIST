@@ -165,6 +165,7 @@ roxygen
 roxygenise
 roxygenize
 RoxygenNote
+roxygen-dependencies
 rpart
 Rprofile
 Rproj

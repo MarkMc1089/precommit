@@ -11,6 +11,8 @@ repos:
           tests/testthat/in/.*|
           renv/.*
           )$
+    -   id: use-tidy-description
+    -   id: roxygen-dependencies
     -   id: roxygenize
         additional_dependencies:
         -    cli
@@ -27,7 +29,6 @@ repos:
         -    r-lib/pkgapi
     # codemeta must be above use-tidy-description when both are used
     # -   id: codemeta-description-updated
-    -   id: use-tidy-description
     -   id: spell-check
         exclude: >
           (?x)^(
