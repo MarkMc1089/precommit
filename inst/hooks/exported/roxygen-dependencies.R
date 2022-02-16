@@ -14,7 +14,7 @@ roxy_block <- paste0(
   deps
 )
 
-config <- paste0(readLines(paste0(".pre-commit-config.yaml")), collapse = "\n")
+config <- paste0(readLines(".pre-commit-config.yaml"), collapse = "\n")
 new_config <- gsub(
   "\\s{4}-\\s*id:\\sroxygenize\\n((\\s{8}.*\\n)*(\\s*-\\s*.*\\n)*)",
   roxy_block, config,
@@ -24,6 +24,6 @@ new_config <- gsub(
 if (new_config != config) {
   writeLines(
     new_config,
-    con = paste0(".pre-commit-config.yaml")
+    con = ".pre-commit-config.yaml"
   )
 }
