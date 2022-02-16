@@ -6,7 +6,7 @@ library(magrittr)
 args <- commandArgs(trailingOnly = TRUE)
 run_one_file <- function(file) {
   config <- yaml::read_yaml(file) # pre-commit filter
-  ours <- which(purrr::map_chr(config$repos, "repo") == "https://github.com/lorenzwalthert/precommit")
+  ours <- which(purrr::map_chr(config$repos, "repo") == "https://github.com/MarkMc1089/precommit")
   nme <- purrr::map_chr(config$repos[[ours]]$hooks, "id")
 
   regex <- config$repos[[1]]$hooks[[which(nme == "spell-check")]]$exclude %>%

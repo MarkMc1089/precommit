@@ -15,23 +15,39 @@ repos:
     -   id: roxygen-dependencies
     -   id: roxygenize
         additional_dependencies:
+        -    cli
+        -    desc
+        -    digest
+        -    docopt
         -    fs
+        -    git2r
+        -    glue
+        -    here
+        -    knitr
+        -    lintr
+        -    magrittr
+        -    mockery
+        -    pkgload
+        -    purrr
+        -    R.cache
+        -    reticulate
+        -    rlang
+        -    rmarkdown
+        -    roxygen2
+        -    rprojroot
+        -    rstudioapi
+        -    spelling
+        -    styler
+        -    testthat
+        -    tibble
+        -    usethis
+        -    withr
+        -    yaml
     # codemeta must be above use-tidy-description when both are used
     # -   id: codemeta-description-updated
     -   id: spell-check
         exclude: >
           (?x)^(
-          .*\.[rR]|
-          .*\.feather|
-          .*\.jpeg|
-          .*\.pdf|
-          .*\.png|
-          .*\.py|
-          .*\.RData|
-          .*\.rds|
-          .*\.Rds|
-          .*\.Rproj|
-          .*\.sh|
           (.*/|)\.gitignore|
           (.*/|)\.pre-commit-.*|
           (.*/|)\.Rbuildignore|
@@ -43,6 +59,17 @@ repos:
           (.*/|)renv/settings\.dcf|
           (.*/|)renv\.lock|
           (.*/|)WORDLIST|
+          .*\.[rR]|
+          .*\.feather|
+          .*\.jpeg|
+          .*\.pdf|
+          .*\.png|
+          .*\.py|
+          .*\.RData|
+          .*\.rds|
+          .*\.Rds|
+          .*\.Rproj|
+          .*\.sh|
           \.github/workflows/.*|
           data/.*|
           inst/hooks/.*|
