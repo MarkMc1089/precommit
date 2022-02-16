@@ -1,1 +1,1 @@
-hooks_repo <- "https://github.com/lorenzwalthert/precommit"
+hooks_repo <- "https://github.com/MarkMc1089/precommit"
