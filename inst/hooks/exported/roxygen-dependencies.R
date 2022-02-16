@@ -21,6 +21,9 @@ new_config <- gsub(
   perl = TRUE
 )
 
-if (new_config != config) writeLines(
-  new_config, con = paste0("/.pre-commit-config.yaml")
-)
+if (new_config != config) {
+  writeLines(
+    new_config,
+    con = paste0(".pre-commit-config.yaml")
+  )
+}
