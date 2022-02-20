@@ -28,9 +28,9 @@ assert_config_has_rev <- function(path_config, latest_tag) {
   file <- yaml::read_yaml(path_config)
   repo <- purrr::map(file$repos, "repo")
 
-  lorenzwalthert_precommit_idx <- which(repo == "https://github.com/lorenzwalthert/precommit")
-  stopifnot(length(lorenzwalthert_precommit_idx) == 1)
-  rev <- file$repos[[lorenzwalthert_precommit_idx]]$rev
+  MarkMc1089_precommit_idx <- which(repo == "https://github.com/MarkMc1089/precommit")
+  stopifnot(length(MarkMc1089_precommit_idx) == 1)
+  rev <- file$repos[[MarkMc1089_precommit_idx]]$rev
 
   if (latest_tag != rev) {
     rlang::abort(glue::glue(

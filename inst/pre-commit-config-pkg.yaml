@@ -1,12 +1,11 @@
 # All available hooks: https://pre-commit.com/hooks.html
 # R specific hooks: https://github.com/lorenzwalthert/precommit
+repos:
 -   repo: https://github.com/MarkMc1089/precommit
     rev: v0.2.2.9019
-    hooks:
+    hooks: 
     -   id: style-files
         args: [--style_pkg=styler, --style_fun=tidyverse_style]    
-    -   id: use-tidy-description
-    -   id: roxygen-dependencies
     -   id: roxygenize
     # codemeta must be above use-tidy-description when both are used
     # -   id: codemeta-description-updated
@@ -14,17 +13,6 @@
     -   id: spell-check
         exclude: >
           (?x)^(
-          .*\.[rR]|
-          .*\.feather|
-          .*\.jpeg|
-          .*\.pdf|
-          .*\.png|
-          .*\.py|
-          .*\.RData|
-          .*\.rds|
-          .*\.Rds|
-          .*\.Rproj|
-          .*\.sh|
           (.*/|)\.gitignore|
           (.*/|)\.gitlab-ci\.yml|
           (.*/|)\.lintr|
@@ -38,6 +26,17 @@
           (.*/|)renv/settings\.dcf|
           (.*/|)renv\.lock|
           (.*/|)WORDLIST|
+          .*\.[rR]|
+          .*\.feather|
+          .*\.jpeg|
+          .*\.pdf|
+          .*\.png|
+          .*\.py|
+          .*\.RData|
+          .*\.rds|
+          .*\.Rds|
+          .*\.Rproj|
+          .*\.sh|
           \.github/workflows/.*|
           data/.*|
           )$
