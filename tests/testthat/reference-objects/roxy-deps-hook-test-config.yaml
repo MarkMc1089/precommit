@@ -1,0 +1,377 @@
+# All available hooks: https://pre-commit.com/hooks.html
+# R specific hooks: https://github.com/lorenzwalthert/precommit
+repos:
+-   repo: https://github.com/MarkMc1089/precommit
+    rev: v0.2.2.9018
+    hooks: 
+    -   id: style-files
+        args: [--style_pkg=styler, --style_fun=tidyverse_style, --cache-root=styler-perm]
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+    -   id: roxygen-dependencies
+    -   id: roxygenize # no tags
+    ############################
+    -   id: roxygen-dependencies
+    -   id: roxygenize # tags but no add_deps tag 
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+    ############################
+    -   id: roxygen-dependencies
+    -   id: roxygenize # empty add_deps tag
+    ############################
+        additional_dependencies:
+    -   id: roxygen-dependencies
+    -   id: roxygenize # tags then empty add_deps tag
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+    ############################
+        additional_dependencies:
+    -   id: roxygen-dependencies
+    -   id: roxygenize # tags then empty add_deps tag then tags
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+    ############################
+        additional_dependencies:
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+    -   id: roxygen-dependencies
+    -   id: roxygenize # add_deps tag
+    ############################
+        additional_dependencies:
+        -    cli
+    -   id: roxygen-dependencies
+    -   id: roxygenize # tags then add_deps tag
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+    ############################
+        additional_dependencies:
+        -    cli
+    -   id: roxygen-dependencies
+    -   id: roxygenize # tags then add_deps tag then tags
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+    ############################
+        additional_dependencies:
+        -    cli
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+    -   id: roxygen-dependencies
+    -   id: roxygenize # no tags then new repo
+    ############################
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks: 
+    -   id: check-added-large-files
+    -   id: end-of-file-fixer
+        exclude: '\.Rd' # sometimes roxygen fails to generate EOF blank line.
+    -   id: file-contents-sorter
+        files: '^\.Rbuildignore$'
+-   repo: https://github.com/MarkMc1089/precommit
+    rev: v0.2.2.9018
+    hooks: 
+    -   id: style-files
+        args: [--style_pkg=styler, --style_fun=tidyverse_style, --cache-root=styler-perm]
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+    -   id: roxygen-dependencies
+    -   id: roxygenize # tags but no add_deps tag then new repo 
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+    ############################
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks: 
+    -   id: check-added-large-files
+    -   id: end-of-file-fixer
+        exclude: '\.Rd' # sometimes roxygen fails to generate EOF blank line.
+    -   id: file-contents-sorter
+        files: '^\.Rbuildignore$'
+-   repo: https://github.com/MarkMc1089/precommit
+    rev: v0.2.2.9018
+    hooks: 
+    -   id: style-files
+        args: [--style_pkg=styler, --style_fun=tidyverse_style, --cache-root=styler-perm]
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+    -   id: roxygen-dependencies
+    -   id: roxygenize # empty add_deps tag then new repo
+    ############################
+        additional_dependencies:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks: 
+    -   id: check-added-large-files
+    -   id: end-of-file-fixer
+        exclude: '\.Rd' # sometimes roxygen fails to generate EOF blank line.
+    -   id: file-contents-sorter
+        files: '^\.Rbuildignore$'
+-   repo: https://github.com/MarkMc1089/precommit
+    rev: v0.2.2.9018
+    hooks: 
+    -   id: style-files
+        args: [--style_pkg=styler, --style_fun=tidyverse_style, --cache-root=styler-perm]
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+    -   id: roxygen-dependencies
+    -   id: roxygenize # tags then empty add_deps tag then new repo
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+    ############################
+        additional_dependencies:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks: 
+    -   id: check-added-large-files
+    -   id: end-of-file-fixer
+        exclude: '\.Rd' # sometimes roxygen fails to generate EOF blank line.
+    -   id: file-contents-sorter
+        files: '^\.Rbuildignore$'
+-   repo: https://github.com/MarkMc1089/precommit
+    rev: v0.2.2.9018
+    hooks: 
+    -   id: style-files
+        args: [--style_pkg=styler, --style_fun=tidyverse_style, --cache-root=styler-perm]
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+    -   id: roxygen-dependencies
+    -   id: roxygenize # tags then empty add_deps tag then tags then new repo
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+    ############################
+        additional_dependencies:
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks: 
+    -   id: check-added-large-files
+    -   id: end-of-file-fixer
+        exclude: '\.Rd' # sometimes roxygen fails to generate EOF blank line.
+    -   id: file-contents-sorter
+        files: '^\.Rbuildignore$'
+-   repo: https://github.com/MarkMc1089/precommit
+    rev: v0.2.2.9018
+    hooks: 
+    -   id: style-files
+        args: [--style_pkg=styler, --style_fun=tidyverse_style, --cache-root=styler-perm]
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+    -   id: roxygen-dependencies
+    -   id: roxygenize # add_deps tag then new repo
+    ############################
+        additional_dependencies:
+        -    cli
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks: 
+    -   id: check-added-large-files
+    -   id: end-of-file-fixer
+        exclude: '\.Rd' # sometimes roxygen fails to generate EOF blank line.
+    -   id: file-contents-sorter
+        files: '^\.Rbuildignore$'
+-   repo: https://github.com/MarkMc1089/precommit
+    rev: v0.2.2.9018
+    hooks: 
+    -   id: style-files
+        args: [--style_pkg=styler, --style_fun=tidyverse_style, --cache-root=styler-perm]
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+    -   id: roxygen-dependencies
+    -   id: roxygenize # tags then add_deps tag then new repo
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+    ############################
+        additional_dependencies:
+        -    cli
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks: 
+    -   id: check-added-large-files
+    -   id: end-of-file-fixer
+        exclude: '\.Rd' # sometimes roxygen fails to generate EOF blank line.
+    -   id: file-contents-sorter
+        files: '^\.Rbuildignore$'
+-   repo: https://github.com/MarkMc1089/precommit
+    rev: v0.2.2.9018
+    hooks: 
+    -   id: style-files
+        args: [--style_pkg=styler, --style_fun=tidyverse_style, --cache-root=styler-perm]
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+    -   id: roxygen-dependencies
+    -   id: roxygenize # tags then add_deps tag then tags then new repo
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+    ############################
+        additional_dependencies:
+        -    cli
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks: 
+    -   id: check-added-large-files
+    -   id: end-of-file-fixer
+        exclude: '\.Rd' # sometimes roxygen fails to generate EOF blank line.
+    -   id: file-contents-sorter
+        files: '^\.Rbuildignore$'
+-   repo: https://github.com/lorenzwalthert/gitignore-tidy
+    rev: d3e947d61fba8c6adde2707d3baa6ae36b989d5b
+    hooks: 
+    -   id: tidy-gitignore
+-   repo: local
+    hooks:
+    -   id: consistent-release-tag
+        name: consistent-release-tag
+        entry: Rscript inst/hooks/local/consistent-release-tag.R
+        language: r
+        additional_dependencies:
+        -    docopt
+        -    fs
+        -    yaml
+        -    purrr 
+        -    rlang 
+        -    git2r
+        -    desc
+        -    glue
+        stages: [commit, push]
+    -   id: hooks-config-to-inst
+        name: hooks-config-to-inst
+        entry: Rscript inst/hooks/local/hooks-config-to-inst.R
+        language: r
+        stages: [commit, push]
+        additional_dependencies:
+        -    fs
+        require_serial: True
+    -   id: spell-check-exclude-identical
+        name: spell-check-exclude-identical
+        entry: Rscript inst/hooks/local/spell-check-exclude-identical.R
+        language: r
+        stages: [commit, push]
+        additional_dependencies:
+        -    magrittr
+        -    purrr
+        -    yaml
+        -    here
+        -    rlang
+        require_serial: True
+    -   id: forbid-to-commit
+        name: Don't commit common R artifacts
+        entry: Cannot commit .Rhistory, .Rdata, .csv and similar.
+        language: fail
+        files: '\.Rhistory|\.csv|\.RData|\.Rds|\.rds$'
+        # `exclude: <regex>` to allow committing specific files.
+    -   id: spell-check-ordered-exclude
+        name: Ordered regex pattern for spell-check exclusion
+        description: Ensure alphabetical order in `exclude:` key of spell check.
+        entry: Rscript inst/hooks/local/spell-check-ordered-exclude.R
+        language: r
+        files: '^(.*/|)\.?pre-commit-config.*\.yaml$'
+        additional_dependencies:
+        -    magrittr
+        -    yaml
+        -    purrr
+        -    rlang
+    -   id: roxygen-dependencies
+    -   id: roxygenize # roxygenise hook before new first level block
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+    ############################
+        additional_dependencies:
+        -    cli
+        exclude: > 
+          (?x)^(
+          tests/testthat/in/.*|
+          renv/.*
+          )$
+        stages: ["push"] #more comments
+
+default_stages: ["commit"]
+
+ci:
+    skip: [consistent-release-tag, spell-check-ordered-exclude]
+    autoupdate_schedule: monthly
