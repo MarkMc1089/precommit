@@ -1,5 +1,7 @@
 #!/usr/bin/env Rscript
 
+library(magrittr)
+
 config <- paste0(readLines(".pre-commit-config.yaml"), collapse = "\n")
 
 regex <- list(
@@ -32,7 +34,7 @@ if (roxy_hook_at < roxy_deps_hook_at) {
 
 # check there are some dependencies in DESCRIPTION 
 deps <- desc::desc_get_deps()
-deps <- deps[(deps$type %in% c("Depends", "Imports")), "package"] %>%
+deps <- deps[(deps$type %in% c("Depends", "Imports")), "package"] %>% 
   setdiff("R")
 if (length(deps) < 1) {
   return (1)
